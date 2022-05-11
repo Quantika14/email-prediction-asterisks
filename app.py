@@ -112,7 +112,7 @@ def main():
                     if c_username == c_email_username:
                         em = f"{username}@{domain}"
                         emails.append(em)
-                if len(name[0]) + last_name == c_email_username:
+                if len(name[0]) + c_last_name == c_email_username:
                     letter = name[0]
                     em = f"{letter}{last_name}@{domain}"
                     emails.append(em)
