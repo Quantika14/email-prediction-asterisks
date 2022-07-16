@@ -1,7 +1,8 @@
 from ctypes import util
 from tabnanny import check
-#import m.intelx as ix
+import m.intelx as ix
 import m.utils as utils
+import shutil
 
 import time
 from validate_email import validate_email
@@ -190,6 +191,33 @@ def main():
             f = open(file_result, "a")
             data = f"{email},False\n"
             f.write(data)
-        
-main()
 
+        #Obtenemos información de los emails válidos
+        f = open(file_result, "r")
+        for email_validate in f.readlines():
+            
+            try:
+                filesPastes = IX.attack(email_validate)
+            except Exception as e:
+                print("[ERROR][>] INTELX error...")
+            count_fp = len(filesPastes)
+
+            if count_fp > 0:
+                #Lo movemos a la carpeta pastes
+                for paste in filesPastes:
+                    ruta = "pastes/" + paste
+                    shutil.move(paste, ruta)
+                    
+                try:
+                    with open(ruta, encoding="utf8", errors='ignore') as openPaste:
+                        for line in openPaste.readlines():
+                            if email_validate in line:
+                                rep.add_markdown(f"- {line}")
+                except Exception as e:
+                    print("[ERROR][>] leak reading error. check permissions")
+            else:
+                print(f"{email_validate} no leaks...")
+
+#HILO PRINCIPAL
+utils.check_APIS_KEY()
+main()
