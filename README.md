@@ -14,7 +14,7 @@ It's necessary to install the intelx library for python
 
 ```bash
 git clone https://github.com/Quantika14/email-prediction-asterisks
-pip3 install -r requiriments.txt
+pip3 install -r requeriments.txt
 
 git clone https://github.com/IntelligenceX/SDK
 pip3 install SDK/Python
@@ -25,6 +25,10 @@ You must put your api key here
 intelx = "HERE"
 emailrep = "HERE"
 ```
+## IMPROVEMENTS
+1. Create a PDF report of results
+2. Create a website
+
 ## Autor
 - Twitter: @JorgeWebsec
 - web: www.quantika14.com
