@@ -1,5 +1,5 @@
 from string import ascii_letters, digits
-
+import m.key as KEY
 import random, time, re
 
 #Contamos la ocurrencia de los asteriscos
