@@ -57,7 +57,7 @@ def check_email(email):
  
 #Verificamos las API Keys
 def check_APIS_KEY():
-    if KEY.intelx == "";
+    if KEY.intelx == "":
         print("The IntelX API KEY does not exist. You will be able to use the application in a limited way.")
     else:
         print(f"Intelx API KEY is configured correctly")
